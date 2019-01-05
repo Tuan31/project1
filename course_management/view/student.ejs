@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Student</title>
+
+        <link rel="stylesheet" type="text/css" href="css/student.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="search">
+           <input type="text" class="searchterm" id="search" placeholder="Search">
+           <button type="submit" class="searchButton">
+             <i class="fa fa-search"></i>
+          </button>
+        </div>
+     </div>
+  <div class="student">
+                <div class="row"> 
+                    <% course.forEach(course => { %>
+                      <div class="col-lg-4 col-sm-6">
+                          <div class="card";>
+                                          <div class="card-body">
+                                            <h4 class="card-title"><%= course.name %> </h4>
+                                            <p class="card-text"><%= course.description %></p>
+                                            <p class="card-text"><%= course.category %></p>
+                                            <p class="card-text"><%= course.subject %></p>
+                                            <p class="card-text"><%= course.start %> - <%= course.end %></p>
+                                            <p class="card-text"><%= course.teach_by %></p>
+                                            <button type="button" class="btn btn-danger">View Course</button>
+                                          </div>
+                          </div>
+                      </div>
+                  <% }); %>                
+                </div>   
+<script>
+                $(document).ready(function () {
+                  $("#search").on("keyup", function () {
+                      var value = $(this).val().toLowerCase()
+                      $(".card").filter(function () {
+                          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                      })
+                  })
+              })
+</script>
+</div>
+</body>
+</html>
+
+
+
+
+

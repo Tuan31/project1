@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Instructor</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/student.css">
+        
+
+</head>
+<body>
+        <div class="wrap">
+                <div class="search">
+                   <input type="text" class="searchterm" id="search" placeholder="Search">
+                   <button type="submit" class="searchButton">
+                     <i class="fa fa-search"></i>
+                  </button>
+                </div>
+             </div>
+
+             
+  <div class="instructor">
+    <div class="button">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="button">Create Course</button>
+    </div>
+    <div class="row">
+        <% course.forEach(course => { %>
+          <div class="col-lg-4 col-sm-6">
+              <div class="card";>
+                              <div class="card-body">
+                                <h4 class="card-title"><%= course.name %> </h4>
+                                <p class="card-text"><%= course.description %></p>
+                                <p class="card-text"><%= course.category %></p>
+                                <p class="card-text"><%= course.subject %></p>
+                                <p class="card-text"><%= course.start %> - <%= course.end %></p>
+                                <p class="card-text"><%= course.teach_by %></p>
+                                <button type="button" class="btn btn-danger">View Course</button>
+                              </div>
+              </div>
+          </div>
+      <% }); %>                
+    </div>
+             
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create Course</h4>
+      </div>
+      <div class="modal-body">
+            <form action="/create_completed" method="POST">
+                <input type="text" name="coursename" placeholder="Course name">
+                <input type="text" name="description" placeholder="Description">
+                <input type="text" name="category" placeholder="Category">
+                <input type="text" name="subject" placeholder="Subject">
+                <input type="text" name="start" placeholder="Start date(e.g. 11/11/2018)">
+                <input type="text" name="end" placeholder="End date(e.g. 11/12/2018)">
+                <input type="text" name="teach_by" placeholder="Teach_by">
+                <input type="number" name="student" placeholder="No. of student">
+                <input type="submit" name="login" class="btn btn-success" value="Save">
+              </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("#search").on("keyup", function () {
+        var value = $(this).val().toLowerCase()
+        $(".card").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        })
+    })
+})
+</script>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+        
+               
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+
+body, html{
+    width: 100%;
+    height: 100%;
+    font-family: "Lato";
+    text-align: center;
+}
+
+
+.button{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+#courses {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    margin: auto;
+    padding: 20px;
+}
+
+
+
+.instructor{
+    padding-top: 50px;
+}
+
+.row{
+    width: 60%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.card{
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    text-align: left;
+    width: 30rem;
+    height: 30rem;
+}
+
+input[type=text] {
+    width: 100%;
+    /* padding: 12px 20px; */
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    width: 100%;
+    /* padding: 12px 20px; */
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
